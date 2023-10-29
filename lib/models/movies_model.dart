@@ -79,6 +79,94 @@ class MoviesModel {
     _data['total_results'] = totalMovies;
     return _data;
   }
+
+  @override
+  String toString() {
+    return 'MoviesModel{averageRating: $averageRating, backdropPath: $backdropPath, createdBy: $createdBy, description: $description, id: $id, iso_3166_1: $iso_3166_1, iso_639_1: $iso_639_1, name: $name, page: $page, posterPath: $posterPath, public: $public, movies: $movies, revenue: $revenue, runtime: $runtime, sortBy: $sortBy, totalPages: $totalPages, totalMovies: $totalMovies}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MoviesModel &&
+          runtimeType == other.runtimeType &&
+          averageRating == other.averageRating &&
+          backdropPath == other.backdropPath &&
+          createdBy == other.createdBy &&
+          description == other.description &&
+          id == other.id &&
+          iso_3166_1 == other.iso_3166_1 &&
+          iso_639_1 == other.iso_639_1 &&
+          name == other.name &&
+          page == other.page &&
+          posterPath == other.posterPath &&
+          public == other.public &&
+          movies == other.movies &&
+          revenue == other.revenue &&
+          runtime == other.runtime &&
+          sortBy == other.sortBy &&
+          totalPages == other.totalPages &&
+          totalMovies == other.totalMovies;
+
+  @override
+  int get hashCode =>
+      averageRating.hashCode ^
+      backdropPath.hashCode ^
+      createdBy.hashCode ^
+      description.hashCode ^
+      id.hashCode ^
+      iso_3166_1.hashCode ^
+      iso_639_1.hashCode ^
+      name.hashCode ^
+      page.hashCode ^
+      posterPath.hashCode ^
+      public.hashCode ^
+      movies.hashCode ^
+      revenue.hashCode ^
+      runtime.hashCode ^
+      sortBy.hashCode ^
+      totalPages.hashCode ^
+      totalMovies.hashCode;
+
+  MoviesModel copyWith({
+    double? averageRating,
+    String? backdropPath,
+    CreatedBy? createdBy,
+    String? description,
+    int? id,
+    String? iso_3166_1,
+    String? iso_639_1,
+    String? name,
+    int? page,
+    String? posterPath,
+    bool? public,
+    List<Movie>? movies,
+    int? revenue,
+    int? runtime,
+    String? sortBy,
+    int? totalPages,
+    int? totalMovies,
+  }) {
+    return MoviesModel(
+      averageRating: averageRating ?? this.averageRating,
+      backdropPath: backdropPath ?? this.backdropPath,
+      createdBy: createdBy ?? this.createdBy,
+      description: description ?? this.description,
+      id: id ?? this.id,
+      iso_3166_1: iso_3166_1 ?? this.iso_3166_1,
+      iso_639_1: iso_639_1 ?? this.iso_639_1,
+      name: name ?? this.name,
+      page: page ?? this.page,
+      posterPath: posterPath ?? this.posterPath,
+      public: public ?? this.public,
+      movies: movies ?? this.movies,
+      revenue: revenue ?? this.revenue,
+      runtime: runtime ?? this.runtime,
+      sortBy: sortBy ?? this.sortBy,
+      totalPages: totalPages ?? this.totalPages,
+      totalMovies: totalMovies ?? this.totalMovies,
+    );
+  }
 }
 
 class CreatedBy {
@@ -181,5 +269,85 @@ class Movie {
     _data['vote_average'] = voteAverage;
     _data['vote_count'] = voteCount;
     return _data;
+  }
+
+  @override
+  String toString() {
+    return 'Movie{adult: $adult, backdropPath: $backdropPath, genreIds: $genreIds, id: $id, mediaType: $mediaType, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, title: $title, video: $video, voteAverage: $voteAverage, voteCount: $voteCount}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Movie &&
+          runtimeType == other.runtimeType &&
+          adult == other.adult &&
+          backdropPath == other.backdropPath &&
+          genreIds == other.genreIds &&
+          id == other.id &&
+          mediaType == other.mediaType &&
+          originalLanguage == other.originalLanguage &&
+          originalTitle == other.originalTitle &&
+          overview == other.overview &&
+          popularity == other.popularity &&
+          posterPath == other.posterPath &&
+          releaseDate == other.releaseDate &&
+          title == other.title &&
+          video == other.video &&
+          voteAverage == other.voteAverage &&
+          voteCount == other.voteCount;
+
+  @override
+  int get hashCode =>
+      adult.hashCode ^
+      backdropPath.hashCode ^
+      genreIds.hashCode ^
+      id.hashCode ^
+      mediaType.hashCode ^
+      originalLanguage.hashCode ^
+      originalTitle.hashCode ^
+      overview.hashCode ^
+      popularity.hashCode ^
+      posterPath.hashCode ^
+      releaseDate.hashCode ^
+      title.hashCode ^
+      video.hashCode ^
+      voteAverage.hashCode ^
+      voteCount.hashCode;
+
+  Movie copyWith({
+    bool? adult,
+    String? backdropPath,
+    List<int>? genreIds,
+    int? id,
+    String? mediaType,
+    String? originalLanguage,
+    String? originalTitle,
+    String? overview,
+    double? popularity,
+    String? posterPath,
+    String? releaseDate,
+    String? title,
+    bool? video,
+    double? voteAverage,
+    int? voteCount,
+  }) {
+    return Movie(
+      adult: adult ?? this.adult,
+      backdropPath: backdropPath ?? this.backdropPath,
+      genreIds: genreIds ?? this.genreIds,
+      id: id ?? this.id,
+      mediaType: mediaType ?? this.mediaType,
+      originalLanguage: originalLanguage ?? this.originalLanguage,
+      originalTitle: originalTitle ?? this.originalTitle,
+      overview: overview ?? this.overview,
+      popularity: popularity ?? this.popularity,
+      posterPath: posterPath ?? this.posterPath,
+      releaseDate: releaseDate ?? this.releaseDate,
+      title: title ?? this.title,
+      video: video ?? this.video,
+      voteAverage: voteAverage ?? this.voteAverage,
+      voteCount: voteCount ?? this.voteCount,
+    );
   }
 }
