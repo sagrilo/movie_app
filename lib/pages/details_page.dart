@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movies_model.dart';
 
@@ -24,12 +25,8 @@ class DetailsPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: Hero(
                   tag: movie.id,
-                  child: Image.network(
-                    API.REQUEST_IMG(movie.posterPath),
-                    loadingBuilder: (_, child, progress) {
-                      if (progress == null) return child;
-                      return const CircularProgressIndicator.adaptive();
-                    },
+                  child: CachedNetworkImage(
+                    imageUrl: API.REQUEST_IMG(movie.posterPath),
                   ),
                 ),
               ),
