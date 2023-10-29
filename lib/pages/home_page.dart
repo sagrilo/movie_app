@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:movie_app/controllers/movie_controller.dart';
 import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/repositories/movies_repository_imp.dart';
@@ -30,23 +31,31 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 40),
-              Text(
-                'Movies',
-                style: Theme.of(context).textTheme.headlineMedium,
+              ValueListenableBuilder<MoviesModel?>(
+                  valueListenable: _controller.movies,
+                builder: (_, movies, __) {
+                  return Visibility(
+                    visible: movies != null,
+                    child: Text(
+                      'Movies',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                  );
+                }
               ),
               ValueListenableBuilder<MoviesModel?>(
                 valueListenable: _controller.movies,
                 builder: (_, movies, __) {
-                  return _controller.movies != null
+                  return movies != null
                       ? ListView.separated(
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: movies!.movies.length,
+                          itemCount: movies.movies.length,
                           itemBuilder: (_, idx) =>
                               CustomListCardWidget(movie: movies.movies[idx]),
                           separatorBuilder: (_, __) => Divider(),
                         )
-                      : Container();
+                      : Lottie.asset('assets/lottie.json');
                 },
               ),
             ],
